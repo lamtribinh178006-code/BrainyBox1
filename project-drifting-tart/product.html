@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fcfbf7" />
+    <meta name="description" content="Thông tin sản phẩm BrainyBox — chọn mua đứt hoặc thuê nếu mặt hàng có hỗ trợ thuê." />
+    <title>Sản phẩm — BrainyBox</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-paper: #fcfbf7;
+        --color-surface: #fffefa;
+        --color-ink: #34352f;
+        --color-muted: #707168;
+        --color-brand: #526d3f;
+        --color-brand-strong: #405b31;
+        --color-leaf: #9ab973;
+        --color-leaf-soft: #eef3e8;
+        --color-accent: #b56917;
+        --color-accent-soft: #fff2d9;
+        --color-border-soft: #e8e3d9;
+        --font-display: 'Fredoka', sans-serif;
+        --font-body: 'Nunito', sans-serif;
+      }
+    </style>
+    <script defer src="./assets/js/products.js"></script>
+    <script defer src="./assets/js/store.js"></script>
+    <script defer src="./assets/js/app.js"></script>
+  </head>
+  <body>
+    <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[#526d3f] focus:px-4 focus:py-3 focus:text-white" href="#main-content">Bỏ qua đến nội dung</a>
+    <header class="site-header">
+      <div class="page-shell flex min-h-20 items-center justify-between gap-4">
+        <a class="flex items-center gap-3 text-inherit no-underline" href="index.html" aria-label="BrainyBox — Trang chủ"><span class="brand-mark">B</span><span><span class="display-font block text-2xl font-semibold leading-none">BrainyBox</span><span class="mt-1 block text-xs font-bold tracking-wide text-[#707168]">Xoay vòng niềm vui</span></span></a>
+        <nav class="hidden items-center gap-5 xl:flex" aria-label="Điều hướng chính"><a class="nav-link" href="index.html#categories">Danh mục</a><a class="nav-link" href="index.html#featured">Đồ chơi nổi bật</a><a class="nav-link" href="index.html#rental-steps">Cách thuê</a><a class="nav-link" href="index.html#b2b">B2B</a><a class="nav-link" href="about.html">About Us</a><a class="nav-link" href="policies.html">Chính sách & Quy định</a></nav>
+        <div class="flex items-center gap-2"><button class="action-outline min-h-11 px-4 py-2 text-sm" type="button" data-cart-open>Giỏ hàng <span class="rounded-full bg-[#eef3e8] px-2 py-0.5 text-xs text-[#526d3f]" data-cart-count>0</span></button><button class="action-secondary min-h-11 px-4 py-2 text-sm xl:hidden" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-navigation">Menu</button></div>
+      </div>
+      <nav id="mobile-navigation" class="page-shell gap-1 pb-4 xl:hidden" aria-label="Điều hướng di động" hidden><a class="nav-link rounded-lg px-3 py-2" href="index.html#categories">Danh mục</a><a class="nav-link rounded-lg px-3 py-2" href="index.html#featured">Đồ chơi nổi bật</a><a class="nav-link rounded-lg px-3 py-2" href="index.html#rental-steps">Cách thuê</a><a class="nav-link rounded-lg px-3 py-2" href="index.html#b2b">Trường học & doanh nghiệp</a><a class="nav-link rounded-lg px-3 py-2" href="about.html">About Us</a><a class="nav-link rounded-lg px-3 py-2" href="policies.html">Chính sách & Quy định</a></nav>
+    </header>
+
+    <main id="main-content" class="page-shell pb-16 pt-7 sm:pt-10">
+      <nav class="mb-6 flex flex-wrap items-center gap-2 text-sm font-bold text-[#707168]" aria-label="Đường dẫn"><a class="text-[#526d3f] underline underline-offset-4" href="index.html">Trang chủ</a><span aria-hidden="true">/</span><a class="text-[#526d3f] underline underline-offset-4" href="index.html#featured">Danh mục đồ chơi</a><span aria-hidden="true">/</span><span id="product-category" class="text-[#34352f]">Sản phẩm</span></nav>
+      <section class="grid items-start gap-8 lg:grid-cols-[1.08fr_0.92fr] lg:gap-12" aria-labelledby="product-title" data-reveal>
+        <div class="min-w-0">
+          <div class="media-frame relative aspect-square overflow-hidden rounded-[1.5rem] sm:rounded-[1.75rem]"><img id="main-product-image" src="https://images.pexels.com/photos/6849274/pexels-photo-6849274.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Em bé nằm chơi dưới khung đồ chơi vận động treo. Ảnh: RDNE Stock project/Pexels." width="900" height="900" fetchpriority="high" style="width:100%;height:100%;object-fit:cover;" /><span id="product-condition" class="absolute left-4 top-4 rounded-full bg-[#fffefa]/95 px-4 py-2 text-sm font-extrabold text-[#526d3f]">Đồ chơi mới</span></div>
+          <div id="product-gallery" class="mt-3 grid grid-cols-3 gap-3" aria-label="Chọn ảnh sản phẩm"></div>
+        </div>
+
+        <div class="min-w-0 lg:sticky lg:top-8">
+          <p id="product-category-label" class="eyebrow">Danh mục BrainyBox</p>
+          <h1 id="product-title" class="display-font mt-2 text-3xl font-semibold leading-tight sm:text-4xl">Sản phẩm</h1>
+          <div class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm"><span id="product-brand" class="font-extrabold text-[#526d3f]">Thương hiệu</span><span aria-hidden="true" class="text-[#707168]">·</span><span id="product-age" class="text-[#707168]">Độ tuổi</span></div>
+          <p id="product-description" class="mt-4 text-base leading-7 text-[#5e5d54]">Thông tin sản phẩm.</p>
+          <div class="mt-5 flex flex-wrap gap-2"><span class="rounded-full bg-[#eef3e8] px-3 py-1.5 text-xs font-extrabold text-[#405b31]">Mặt hàng trong danh mục dự án</span><span id="product-price-note" class="rounded-full bg-[#fff2d9] px-3 py-1.5 text-xs font-extrabold text-[#7a4a1b]" hidden></span></div>
+
+          <form id="product-purchase" class="mt-7 rounded-[1.25rem] border border-[#e8e3d9] bg-[#fffefa] p-4 sm:p-5">
+            <div id="product-variant-field" class="mb-5" hidden><label class="block text-sm font-extrabold" for="product-variant">Chọn cấp độ puzzle</label><select id="product-variant" class="field-control mt-2"></select></div>
+            <fieldset><legend class="text-sm font-extrabold">Chọn cách sở hữu</legend><div class="mt-3 grid gap-3 sm:grid-cols-2"><label class="product-option block rounded-xl border border-[#e8e3d9] p-4"><input class="sr-only" type="radio" name="purchase-mode" value="buy" checked /><span class="flex items-start justify-between gap-2"><span><span class="block font-extrabold">Mua đứt</span><span class="mt-1 block text-xs font-semibold text-[#707168]">Món chơi của riêng mình</span></span><span id="product-buy-option-price" class="shrink-0 text-right text-sm font-extrabold text-[#34352f]">—</span></span></label><label id="rent-mode-option" class="product-option block rounded-xl border border-[#e8e3d9] p-4"><input class="sr-only" type="radio" name="purchase-mode" value="rent" /><span class="flex items-start justify-between gap-2"><span><span class="block font-extrabold">Thuê linh hoạt</span><span class="mt-1 block text-xs font-semibold text-[#707168]">Thử trước, thích thì mua</span></span><span class="shrink-0 text-right text-xs font-extrabold leading-5 text-[#526d3f]"><span id="product-rent-option-price">—</span><br /><span id="product-rent-period">/ 14 ngày</span></span></span></label></div></fieldset>
+            <fieldset id="rental-terms" class="mt-5" hidden><legend class="text-sm font-extrabold">Thời hạn thuê theo danh mục</legend><div class="mt-3 grid grid-cols-1 gap-2"><label class="rent-term rounded-xl border border-[#e8e3d9] px-3 py-3 text-center"><input class="sr-only" type="radio" name="rental-term" value="14days" checked /><span class="block text-sm font-extrabold">14 ngày</span><span class="mt-1 block text-sm font-bold">Phí theo bảng sản phẩm</span></label></div></fieldset>
+            <div class="mt-5 flex items-end justify-between gap-4 border-t border-[#e8e3d9] pt-4"><div><span class="block text-xs font-bold text-[#707168]">Giá theo lựa chọn</span><output id="current-price" class="display-font mt-1 block text-3xl font-semibold text-[#526d3f]" aria-live="polite">—</output></div><span class="pb-1 text-right text-xs font-bold text-[#707168]">Giá mẫu<br />theo tài liệu</span></div>
+            <div id="deposit-notice" class="mt-4 rounded-xl bg-[#eef3e8] p-4" hidden><div class="flex items-center justify-between gap-3"><span class="text-sm font-extrabold">Tiền cọc tham khảo</span><strong id="deposit-amount" class="text-sm font-extrabold text-[#405b31]">—</strong></div><p class="mt-1 text-xs leading-5 text-[#5e6657]">Mô phỏng theo tỷ lệ cọc tiêu chuẩn dự thảo. Tiền thuê tính riêng; cọc/chính sách cần được xác nhận trước khi áp dụng.</p></div>
+            <p id="product-stock-status" class="mt-4 text-center text-sm font-bold text-[#7a541e]" role="status" aria-live="polite"></p>
+            <button id="add-product-to-cart" class="action-primary mt-3 w-full" type="submit">Mua đứt món này <span aria-hidden="true">→</span></button>
+            <p class="mt-3 text-center text-xs leading-5 text-[#707168]">Bản demo — tồn kho cần được kiểm kê trước khi đặt; thao tác không xử lý thanh toán thật.</p>
+          </form>
+          <p class="mt-4 text-xs leading-5 text-[#707168]">Giá là dữ liệu lấy từ bảng danh mục dự án; xác nhận tồn kho và thông tin nhà cung cấp trước khi kinh doanh chính thức.</p>
+        </div>
+      </section>
+
+      <section class="mt-14 grid gap-6 border-t border-[#e8e3d9] pt-8 md:grid-cols-[0.8fr_1.2fr] sm:mt-16 sm:pt-10" aria-labelledby="details-title"><div><p class="eyebrow">Cùng nhau khám phá</p><h2 id="details-title" class="display-font mt-2 text-2xl font-semibold">Từng món đồ chơi,<br />một cuộc chơi mới.</h2></div><div class="grid gap-5 sm:grid-cols-2"><div><h3 class="text-sm font-extrabold">Chơi theo độ tuổi</h3><p class="mt-2 text-sm leading-6 text-[#707168]">Đọc thông tin nhóm tuổi và mô tả trên từng sản phẩm để lựa chọn phù hợp với nhu cầu gia đình.</p></div><div><h3 class="text-sm font-extrabold">Mua hoặc thuê</h3><p class="mt-2 text-sm leading-6 text-[#707168]">Hình thức thuê, thời hạn 14 ngày và tiền cọc chỉ xuất hiện nếu sản phẩm được đánh dấu có hỗ trợ thuê trong bảng dự án.</p><a class="mt-2 inline-flex font-extrabold text-[#526d3f] underline underline-offset-4" href="policies.html#rental">Xem dự thảo chính sách thuê <span class="ml-2" aria-hidden="true">→</span></a></div></div></section>
+      <section class="mt-14 rounded-[1.5rem] bg-[#eef3e8] p-6 sm:mt-16 sm:p-8" aria-labelledby="next-adventure"><div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center"><div><p class="eyebrow">Sẵn sàng cho vòng chơi mới?</p><h2 id="next-adventure" class="display-font mt-2 text-2xl font-semibold">Khám phá thêm đồ chơi hay</h2></div><a class="action-primary shrink-0" href="index.html#featured">Xem bộ sưu tập <span aria-hidden="true">→</span></a></div></section>
+    </main>
+
+    <footer class="border-t border-[#e8e3d9] bg-[#f7f5ee] py-9 sm:py-12"><div class="page-shell grid gap-8 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]"><div><a class="flex w-fit items-center gap-3 text-inherit no-underline" href="index.html"><span class="brand-mark">B</span><span class="display-font text-xl font-semibold">BrainyBox</span></a><p class="mt-4 max-w-xs text-sm leading-6 text-[#707168]">Xoay vòng niềm vui, ươm mầm trí tuệ. Một lựa chọn nhỏ cho những cuộc chơi lớn hơn.</p></div><div><h2 class="text-sm font-extrabold">Khám phá</h2><ul class="mt-3 space-y-2 text-sm text-[#707168]"><li><a href="index.html#categories">Danh mục đồ chơi</a></li><li><a href="index.html#featured">Sản phẩm nổi bật</a></li><li><a href="index.html#rental-steps">Cách thuê</a></li></ul></div><div><h2 class="text-sm font-extrabold">BrainyBox</h2><ul class="mt-3 space-y-2 text-sm text-[#707168]"><li><a href="about.html">About Us</a></li><li><a href="policies.html">Chính sách & Quy định</a></li><li><a href="index.html#b2b">Giải pháp B2B</a></li></ul></div><div class="rounded-2xl bg-[#eef3e8] p-5"><h2 class="display-font text-lg font-semibold">Chơi vui, đổi mới!</h2><p class="mt-2 text-sm leading-6 text-[#5e6657]">Thuê một món mới, để trí tưởng tượng lại bắt đầu.</p><a class="mt-3 inline-flex font-extrabold text-[#526d3f] underline underline-offset-4" href="index.html#categories">Chọn đồ chơi <span class="ml-2" aria-hidden="true">→</span></a></div></div><div class="page-shell mt-8 flex flex-col justify-between gap-2 border-t border-[#e8e3d9] pt-5 text-xs text-[#707168] sm:flex-row"><span>© 2026 BrainyBox. Prototype minh họa.</span><span>Chơi lâu hơn · Vui xanh hơn</span></div></footer>
+    <dialog id="cart-dialog" class="cart-dialog"><div class="flex items-start justify-between gap-4"><div><p class="eyebrow">BrainyBox</p><h2 class="display-font mt-1 text-2xl font-semibold">Giỏ đồ chơi</h2></div><button class="action-outline min-h-10 px-3 py-2 text-sm" type="button" data-cart-close aria-label="Đóng giỏ hàng">Đóng</button></div><p id="cart-empty" class="mt-5 text-sm text-[#707168]">Giỏ hàng đang trống. Hãy chọn món đồ chơi bạn thích nhé!</p><ul id="cart-items" class="mt-3"></ul><p id="cart-live" class="notice-live mt-4 text-sm font-bold text-[#526d3f]" role="status" aria-live="polite"></p><div class="mt-5 grid gap-3"><a class="action-primary w-full hidden" href="checkout.html" data-cart-checkout>Thanh toán <span aria-hidden="true">→</span></a><a class="action-secondary w-full" href="index.html#featured" data-cart-close-link>Tiếp tục khám phá</a></div></dialog>
+  </body>
+</html>

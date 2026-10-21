@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fcfbf7" />
+    <meta name="description" content="BrainyBox — khu vực quản trị demo, lưu dữ liệu trong trình duyệt hiện tại." />
+    <title>Quản trị — BrainyBox</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.48.0/dist/tabler-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="stylesheet" href="./assets/css/admin.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-paper: #fcfbf7;
+        --color-surface: #fffefa;
+        --color-ink: #34352f;
+        --color-muted: #707168;
+        --color-brand: #526d3f;
+        --color-brand-strong: #405b31;
+        --color-leaf: #9ab973;
+        --color-leaf-soft: #eef3e8;
+        --color-accent: #b56917;
+        --color-accent-soft: #fff2d9;
+        --color-border-soft: #e8e3d9;
+        --font-display: 'Fredoka', sans-serif;
+        --font-body: 'Nunito', sans-serif;
+      }
+    </style>
+    <script defer src="./assets/js/products.js"></script>
+    <script defer src="./assets/js/store.js"></script>
+    <script defer src="./assets/js/admin.js"></script>
+  </head>
+  <body class="admin-body">
+    <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[#526d3f] focus:px-4 focus:py-3 focus:text-white" href="#admin-main">Bỏ qua đến nội dung</a>
+
+    <main id="admin-main">
+      <section id="admin-login" class="admin-login min-h-screen" aria-labelledby="admin-login-title">
+        <div class="admin-login-wrap">
+          <a class="admin-login-brand" href="index.html" aria-label="BrainyBox — mở cửa hàng"><span class="brand-mark">B</span><span><strong class="display-font">BrainyBox</strong><small>Quản trị cửa hàng</small></span></a>
+          <div class="admin-login-panel">
+            <h1 id="admin-login-title" class="display-font">Đăng nhập quản trị</h1>
+            <p class="admin-login-subtitle">Đăng nhập để tiếp tục quản lý cửa hàng BrainyBox.</p>
+            <form id="admin-login-form" class="admin-form-stack">
+              <div><label class="admin-field-label" for="admin-username">Tài khoản</label><input class="field-control" id="admin-username" name="username" autocomplete="username" required placeholder="Nhập tài khoản" /></div>
+              <div><label class="admin-field-label" for="admin-password">Mật khẩu</label><div class="admin-password-wrap"><input class="field-control" id="admin-password" name="password" type="password" autocomplete="current-password" required placeholder="Nhập mật khẩu" /><button id="toggle-password" class="admin-password-toggle" type="button" aria-label="Hiện mật khẩu" aria-pressed="false"><i class="ti ti-eye" aria-hidden="true"></i></button></div></div>
+              <p id="admin-login-error" class="admin-error" role="alert" hidden></p>
+              <button class="action-primary w-full" type="submit">Đăng nhập demo <span aria-hidden="true">→</span></button>
+            </form>
+            <div class="admin-demo-note"><p>Bản demo quản trị. Dữ liệu chỉ lưu trong trình duyệt này; đây không phải xác thực bảo mật.</p><p class="admin-demo-credentials">Tài khoản demo: <code>admin</code> · Mật khẩu demo: <code>brainybox-demo</code></p></div>
+          </div>
+          <a class="admin-back-store" href="index.html"><i class="ti ti-arrow-left" aria-hidden="true"></i> Quay lại cửa hàng</a>
+        </div>
+      </section>
+
+      <div id="admin-app" class="admin-shell" hidden>
+        <aside class="admin-rail" aria-label="Thanh điều hướng quản trị">
+          <a class="admin-brand" href="#overview" aria-label="BrainyBox — tổng quan"><span class="brand-mark">B</span><span><strong class="display-font">BrainyBox</strong><small>Quản trị cửa hàng</small></span></a>
+          <p class="admin-rail-label">Vận hành</p>
+          <nav id="admin-nav" class="admin-nav" aria-label="Khu vực quản trị">
+            <a href="#overview" data-route="overview"><i class="ti ti-layout-dashboard" aria-hidden="true"></i> Tổng quan</a>
+            <a href="#products" data-route="products"><i class="ti ti-package" aria-hidden="true"></i> Sản phẩm</a>
+            <a href="#orders" data-route="orders"><i class="ti ti-receipt" aria-hidden="true"></i> Đơn hàng</a>
+            <a href="#b2b" data-route="b2b"><i class="ti ti-building-store" aria-hidden="true"></i> Khách B2B</a>
+          </nav>
+          <div class="admin-rail-footer"><p>Bản demo quản trị</p><span>Không kết nối máy chủ hoặc cổng thanh toán.</span><button class="admin-logout-link" type="button" data-admin-logout><i class="ti ti-logout" aria-hidden="true"></i> Đăng xuất</button></div>
+        </aside>
+
+        <div class="admin-workspace">
+          <header class="admin-topbar">
+            <button id="admin-mobile-nav-toggle" class="admin-mobile-menu-button" type="button" aria-expanded="false" aria-controls="admin-mobile-nav"><i class="ti ti-menu-2" aria-hidden="true"></i><span>Điều hướng</span></button>
+            <div id="admin-page-heading" class="admin-page-heading">Việc cần xử lý</div>
+            <div class="admin-topbar-actions"><span class="admin-local-note"><span aria-hidden="true"></span>Dữ liệu demo · lưu trong trình duyệt này</span><a class="admin-store-link" href="index.html"><i class="ti ti-external-link" aria-hidden="true"></i> Mở cửa hàng</a><button class="admin-logout-button" type="button" data-admin-logout>Đăng xuất</button></div>
+          </header>
+          <nav id="admin-mobile-nav" class="admin-mobile-nav" aria-label="Điều hướng quản trị di động" hidden>
+            <a href="#overview" data-route="overview">Tổng quan</a><a href="#products" data-route="products">Sản phẩm</a><a href="#orders" data-route="orders">Đơn hàng</a><a href="#b2b" data-route="b2b">Khách B2B</a>
+          </nav>
+          <div id="admin-global-alert" class="admin-global-alert" role="alert" hidden></div>
+          <main id="admin-view" class="admin-view" tabindex="-1"></main>
+        </div>
+      </div>
+    </main>
+
+    <dialog id="admin-confirm-dialog" class="admin-dialog">
+      <form method="dialog" class="admin-dialog-content"><div class="admin-dialog-header"><h2 id="admin-confirm-title" class="display-font">Xác nhận thao tác</h2><button class="admin-icon-button" value="cancel" aria-label="Đóng"><i class="ti ti-x" aria-hidden="true"></i></button></div><p id="admin-confirm-message" class="admin-dialog-message"></p><div class="admin-dialog-actions"><button class="admin-secondary-button" value="cancel">Hủy</button><button id="admin-confirm-action" class="admin-primary-button" value="confirm">Xác nhận</button></div></form>
+    </dialog>
+    <div id="admin-toast" class="admin-toast" role="status" aria-live="polite"></div>
+  </body>
+</html>

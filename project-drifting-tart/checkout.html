@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fcfbf7" />
+    <meta name="description" content="Hoàn tất thông tin đặt hàng BrainyBox — giao dịch mô phỏng, chưa xử lý thanh toán." />
+    <title>Thanh toán — BrainyBox</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-paper: #fcfbf7;
+        --color-surface: #fffefa;
+        --color-ink: #34352f;
+        --color-muted: #707168;
+        --color-brand: #526d3f;
+        --color-brand-strong: #405b31;
+        --color-leaf: #9ab973;
+        --color-leaf-soft: #eef3e8;
+        --color-accent: #b56917;
+        --color-accent-soft: #fff2d9;
+        --color-border-soft: #e8e3d9;
+        --font-display: 'Fredoka', sans-serif;
+        --font-body: 'Nunito', sans-serif;
+      }
+    </style>
+    <script defer src="./assets/js/products.js"></script>
+    <script defer src="./assets/js/store.js"></script>
+    <script defer src="./assets/js/app.js"></script>
+  </head>
+  <body>
+    <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-[#526d3f] focus:px-4 focus:py-3 focus:text-white" href="#main-content">Bỏ qua đến nội dung</a>
+
+    <header class="border-b border-[#e8e3d9] bg-[#fffefa]">
+      <div class="page-shell flex min-h-20 items-center justify-between gap-4">
+        <a class="flex items-center gap-3 text-inherit no-underline" href="index.html" aria-label="BrainyBox — Trang chủ"><span class="brand-mark">B</span><span><span class="display-font block text-2xl font-semibold leading-none">BrainyBox</span><span class="mt-1 block text-xs font-bold tracking-wide text-[#707168]">Xoay vòng niềm vui</span></span></a>
+        <a class="action-secondary min-h-11 px-4 py-2 text-sm" href="index.html#featured">Tiếp tục mua sắm</a>
+      </div>
+    </header>
+
+    <main id="main-content" class="page-shell pb-16 pt-6 sm:pt-8">
+      <nav class="checkout-steps mb-7 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-bold text-[#707168] sm:mb-9" aria-label="Tiến trình thanh toán"><a class="text-[#526d3f] underline underline-offset-4" href="index.html#featured">Giỏ hàng</a><span aria-hidden="true">›</span><span>Thông tin</span><span aria-hidden="true">›</span><span>Vận chuyển</span><span aria-hidden="true">›</span><span class="text-[#34352f]" aria-current="step">Thanh toán</span></nav>
+
+      <div id="checkout-empty" class="mx-auto max-w-xl rounded-3xl border border-[#e8e3d9] bg-[#fffefa] px-6 py-10 text-center sm:px-10" hidden><span class="brand-mark mx-auto">B</span><h1 class="display-font mt-5 text-3xl font-semibold">Giỏ hàng của bạn đang trống</h1><p class="mt-2 text-sm leading-6 text-[#707168]">Chọn món đồ chơi yêu thích trước khi tiếp tục đến bước thanh toán.</p><a class="action-primary mt-6" href="index.html#featured">Khám phá đồ chơi <span aria-hidden="true">→</span></a></div>
+
+      <div id="checkout-layout" class="grid items-start gap-8 lg:grid-cols-[minmax(0,1.08fr)_minmax(22rem,0.92fr)] lg:gap-12">
+        <form id="checkout-form" class="min-w-0" novalidate>
+          <fieldset class="border-0 p-0">
+            <legend class="display-font text-2xl font-semibold">Thông tin liên hệ</legend>
+            <div class="mt-4 grid gap-4 sm:grid-cols-2">
+              <div class="sm:col-span-2"><label class="mb-1.5 block text-sm font-extrabold" for="checkout-email">Email <span class="text-[#b56917]">*</span></label><input class="field-control" id="checkout-email" name="email" type="email" autocomplete="email" required placeholder="ban@example.com" /></div>
+              <div class="sm:col-span-2"><label class="mb-1.5 block text-sm font-extrabold" for="checkout-phone">Số điện thoại <span class="text-[#b56917]">*</span></label><input class="field-control" id="checkout-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" pattern="[0-9+() .-]{8,20}" required placeholder="090 123 4567" /></div>
+            </div>
+            <label class="mt-3 flex min-h-11 items-center gap-2 text-sm font-semibold text-[#5e5d54]"><input class="size-4 accent-[#526d3f]" type="checkbox" name="email-updates" /> Gửi cho tôi tin tức và ưu đãi qua email</label>
+          </fieldset>
+
+          <fieldset class="mt-7 border-0 border-t border-[#e8e3d9] p-0 pt-6">
+            <legend class="display-font text-2xl font-semibold">Giao hàng</legend>
+            <div class="mt-4 grid gap-3 sm:grid-cols-2">
+              <label class="checkout-option flex min-h-[4.5rem] cursor-pointer items-center gap-3 rounded-2xl border border-[#e8e3d9] bg-[#fffefa] px-4 py-3"><input class="size-4 accent-[#526d3f]" type="radio" name="fulfillment" value="delivery" checked /><span><span class="block text-sm font-extrabold">Giao hàng tận nơi</span><span class="mt-0.5 block text-xs text-[#707168]">Giao đến địa chỉ của bạn</span></span></label>
+              <label class="checkout-option flex min-h-[4.5rem] cursor-pointer items-center gap-3 rounded-2xl border border-[#e8e3d9] bg-[#fffefa] px-4 py-3"><input class="size-4 accent-[#526d3f]" type="radio" name="fulfillment" value="pickup" /><span><span class="block text-sm font-extrabold">Nhận hàng tại điểm hẹn</span><span class="mt-0.5 block text-xs text-[#707168]">Chọn điểm nhận demo</span></span></label>
+            </div>
+
+            <div id="checkout-delivery-fields" class="mt-5 grid gap-4 sm:grid-cols-2">
+              <div class="sm:col-span-2"><label class="mb-1.5 block text-sm font-extrabold" for="checkout-country">Quốc gia/Vùng <span class="text-[#b56917]">*</span></label><select class="field-control" id="checkout-country" name="country" required><option value="VN" selected>Việt Nam</option></select></div>
+              <div><label class="mb-1.5 block text-sm font-extrabold" for="checkout-first-name">Tên <span class="text-[#b56917]">*</span></label><input class="field-control" id="checkout-first-name" name="firstName" autocomplete="given-name" required /></div>
+              <div><label class="mb-1.5 block text-sm font-extrabold" for="checkout-last-name">Họ <span class="text-[#b56917]">*</span></label><input class="field-control" id="checkout-last-name" name="lastName" autocomplete="family-name" required /></div>
+              <div class="sm:col-span-2"><label class="mb-1.5 block text-sm font-extrabold" for="checkout-address">Địa chỉ <span class="text-[#b56917]">*</span></label><input class="field-control" id="checkout-address" name="address" autocomplete="street-address" required placeholder="Số nhà, tên đường" /></div>
+              <div><label class="mb-1.5 block text-sm font-extrabold" for="checkout-province">Tỉnh/Thành phố <span class="text-[#b56917]">*</span></label><select class="field-control" id="checkout-province" name="province" autocomplete="address-level1" required><option value="" selected disabled>Chọn Tỉnh/Thành phố</option><option>Hà Nội</option><option>TP. Hồ Chí Minh</option><option>Đà Nẵng</option><option>Tỉnh/Thành phố khác</option></select></div>
+              <div><label class="mb-1.5 block text-sm font-extrabold" for="checkout-ward">Phường/Xã <span class="text-[#b56917]">*</span></label><input class="field-control" id="checkout-ward" name="ward" autocomplete="address-level2" required placeholder="Phường/Xã" /></div>
+              <div><label class="mb-1.5 block text-sm font-extrabold" for="checkout-city">Quận/Huyện <span class="text-[#b56917]">*</span></label><input class="field-control" id="checkout-city" name="city" required placeholder="Quận/Huyện" /></div>
+              <div><label class="mb-1.5 block text-sm font-extrabold" for="checkout-postal">Mã bưu chính <span class="font-semibold text-[#707168]">(không bắt buộc)</span></label><input class="field-control" id="checkout-postal" name="postalCode" autocomplete="postal-code" inputmode="numeric" /></div>
+              <p class="sm:col-span-2 text-xs leading-5 text-[#707168]">Thông tin liên hệ và giao hàng chỉ dùng để minh họa trong phiên này, không được lưu lại.</p>
+            </div>
+
+            <div id="checkout-pickup-fields" class="mt-5" hidden><label class="mb-1.5 block text-sm font-extrabold" for="checkout-pickup-point">Chọn điểm nhận (bản demo) <span class="text-[#b56917]">*</span></label><select class="field-control" id="checkout-pickup-point" name="pickupPoint" disabled><option value="" selected disabled>Chọn điểm nhận hàng</option><option value="demo-point">Điểm nhận BrainyBox (đang mô phỏng)</option></select><p class="mt-2 text-xs leading-5 text-[#707168]">BrainyBox chưa cấu hình cửa hàng thật; lựa chọn này chỉ minh họa luồng nhận hàng.</p></div>
+          </fieldset>
+
+          <section id="checkout-shipping" class="mt-7 border-t border-[#e8e3d9] pt-6" aria-labelledby="checkout-shipping-title"><h2 id="checkout-shipping-title" class="display-font text-2xl font-semibold">Phương thức vận chuyển</h2><label class="checkout-option mt-4 flex cursor-pointer items-center justify-between gap-4 rounded-2xl border border-[#526d3f] bg-[#f3f7ef] px-4 py-4"><span class="flex items-start gap-3"><input class="mt-1 size-4 accent-[#526d3f]" type="radio" name="shipping" value="standard" checked /><span><span class="block text-sm font-extrabold">Giao hàng tiêu chuẩn</span><span class="mt-1 block text-xs leading-5 text-[#707168]">Miễn phí vận chuyển trong bản demo</span></span></span><strong class="shrink-0 text-sm text-[#405b31]">Miễn phí</strong></label></section>
+
+          <fieldset class="mt-7 border-0 border-t border-[#e8e3d9] p-0 pt-6"><legend class="display-font text-2xl font-semibold">Thông tin bổ sung</legend><label class="mt-4 flex min-h-11 items-center gap-2 text-sm font-semibold"><input class="size-4 accent-[#526d3f]" type="checkbox" name="invoice" /> Yêu cầu xuất hóa đơn</label><label class="mt-3 block text-sm font-extrabold" for="checkout-note">Ghi chú <span class="font-semibold text-[#707168]">(không bắt buộc)</span></label><textarea class="field-control mt-1.5 min-h-24 resize-y" id="checkout-note" name="note" placeholder="Ghi chú về đơn hàng"></textarea></fieldset>
+
+          <fieldset class="mt-7 border-0 border-t border-[#e8e3d9] p-0 pt-6"><legend class="display-font text-2xl font-semibold">Thanh toán</legend><p class="mt-2 text-sm leading-6 text-[#707168]">Chọn cách thanh toán mô phỏng. Không nhập thông tin thẻ — trang này không kết nối cổng thanh toán.</p><div class="mt-4 grid gap-3"><label class="checkout-option flex cursor-pointer items-start gap-3 rounded-2xl border border-[#e8e3d9] bg-[#fffefa] p-4"><input class="mt-1 size-4 accent-[#526d3f]" type="radio" name="payment" value="online-demo" checked required /><span><span class="block text-sm font-extrabold">Thanh toán online (mô phỏng)</span><span class="mt-1 block text-xs leading-5 text-[#707168]">Không thu tiền — chỉ minh họa lựa chọn thanh toán.</span></span></label><label class="checkout-option flex cursor-pointer items-start gap-3 rounded-2xl border border-[#e8e3d9] bg-[#fffefa] p-4"><input class="mt-1 size-4 accent-[#526d3f]" type="radio" name="payment" value="cod-demo" /><span><span class="block text-sm font-extrabold">Thanh toán khi nhận hàng (COD)</span><span class="mt-1 block text-xs leading-5 text-[#707168]">Tùy chọn mô phỏng, chưa phát sinh đơn giao hàng.</span></span></label></div></fieldset>
+
+          <label class="mt-6 flex cursor-pointer items-start gap-3 rounded-xl bg-[#eef3e8] p-4 text-sm leading-6"><input class="mt-1 size-4 shrink-0 accent-[#526d3f]" type="checkbox" name="terms" required /><span>Tôi đồng ý với <a class="font-extrabold text-[#405b31] underline underline-offset-2" href="policies.html">Điều khoản dịch vụ và Chính sách & Quy định</a>. <span class="text-[#b56917]">*</span></span></label>
+          <button class="action-primary mt-5 w-full" type="submit">Đặt hàng <span aria-hidden="true">→</span></button>
+          <div id="checkout-error" class="notice-live mt-4 rounded-xl border border-[#ead5ab] bg-[#fff7e7] p-4 text-sm font-bold leading-6 text-[#70521e]" role="alert" aria-live="assertive"></div>
+          <button id="refresh-cart-prices" class="mt-3 hidden w-full text-sm font-extrabold text-[#405b31] underline underline-offset-4" type="button">Cập nhật giá giỏ hàng và kiểm tra lại</button>
+          <p class="mt-3 text-center text-xs leading-5 text-[#707168]">Bản demo — đơn, tồn kho và liên hệ được lưu cục bộ; thanh toán chưa được xử lý.</p>
+          <p id="checkout-response" class="notice-live mt-4 rounded-xl bg-[#eef3e8] p-4 text-sm font-extrabold leading-6 text-[#405b31]" role="status" aria-live="polite"></p>
+        </form>
+
+        <aside id="checkout-summary" class="checkout-summary min-w-0 rounded-3xl border border-[#e8e3d9] p-5 sm:p-7 lg:sticky lg:top-6" aria-labelledby="checkout-summary-title">
+          <h2 id="checkout-summary-title" class="display-font text-2xl font-semibold">Tóm tắt đơn hàng</h2>
+          <ul id="checkout-items" class="mt-5 divide-y divide-[#dedbd4]"><li class="py-3 text-sm text-[#707168]">Đang tải giỏ hàng…</li></ul>
+          <div class="mt-5 space-y-3 border-t border-[#dedbd4] pt-5 text-sm"><div class="flex items-center justify-between gap-4"><span>Tiền hàng hóa / phí thuê</span><strong id="checkout-subtotal" class="text-right">—</strong></div><div id="checkout-deposit-row" class="flex items-center justify-between gap-4"><span>Tiền cọc hoàn lại</span><strong id="checkout-deposit" class="text-right">—</strong></div><p id="checkout-deposit-note" class="-mt-1 text-xs leading-5 text-[#707168]">Cọc thuê được tách riêng; khoản này chỉ là dữ liệu mô phỏng.</p><div class="flex items-center justify-between gap-4"><span>Phí vận chuyển</span><strong id="checkout-shipping-cost" class="text-right text-[#405b31]">Miễn phí</strong></div><div class="flex items-center justify-between gap-4 border-t border-[#dedbd4] pt-4 text-base"><span class="font-extrabold">Tổng cộng</span><strong id="checkout-total" class="text-right text-lg font-extrabold text-[#405b31]">—</strong></div></div>
+          <p class="mt-5 rounded-xl bg-[#fffefa]/80 p-3 text-xs leading-5 text-[#707168]">Tổng tiền gồm giá món, phí thuê (nếu có), tiền cọc hoàn lại và vận chuyển miễn phí trong bản demo. Chưa có khoản giảm giá, thuế hay thanh toán thực tế.</p>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="border-t border-[#e8e3d9] bg-[#f7f5ee] py-6"><div class="page-shell flex flex-col justify-between gap-2 text-xs text-[#707168] sm:flex-row"><span>© 2026 BrainyBox. Prototype minh họa.</span><a class="font-bold text-[#526d3f] underline underline-offset-2" href="index.html">Quay lại BrainyBox</a></div></footer>
+  </body>
+</html>
